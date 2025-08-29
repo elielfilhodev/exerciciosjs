@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício JavaScript</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="card">
+            <h1>Olá Mundo</h1>
+        </div>
+    </div>
+    <script>
+
+        /*=========================================================================*/
+
+        // exercício 1: Maioridade
+        let idade = Number(prompt('Qual a sua idade?'));
+
+        if (idade >= 18) {
+            alert('Você é maior de idade');
+        } else {
+            alert('Você é menor de idade');
+        }
+
+        document.body.innerHTML += `<p>Você tem ${idade} anos.</p>`;
+
+        /*=========================================================================*/
+
+        // Exercicio 2: Par ou Ímpar
+        let numero = Number(prompt('Digite um número'));
+
+        if (numero % 2 === 0) {
+            alert('O número digitado é par');
+            document.body.innerHTML += `<p>O número digitado é ${numero} e é par</p>`;
+        } else {
+            alert('O número digitado é ímpar');
+            document.body.innerHTML += `<p>O número digitado é ${numero} e é ímpar</p>`;
+        }
+
+        /*=========================================================================*/
+
+        // exercício 3: soma número 1 a 100
+        let soma = 0;
+
+        for (let i = 1; i <= 100; i++) {
+            soma += i; // soma = soma + i
+        }
+
+        // opção 1: aparece na tela
+        alert(`A soma de 1 a 100 é ${soma}`);
+
+        // opção 2: aparece no console do navegador
+        console.log(`A soma de 1 a 100 é ${soma}`);
+
+        document.body.innerHTML += `<p>A soma de 1 a 100 é ${soma}</p>`;
+
+        /*=========================================================================*/
+
+        // exercício 4: Saudação
+
+        function saudar(nome) {
+            return `Olá, ${nome}!`;
+        }
+
+        let mensagem = saudar("Eliel");
+
+        // mostra na caixinha
+        alert(mensagem);
+
+        // mostra na página
+        document.body.innerHTML += `<p>${mensagem}</p>`;
+
+        /*=========================================================================*/
+
+        // exercício 5: Lista de Frutas com array e loop
+        let frutas = ["Maçã", "Banana", "Uva", "Manga", "Abacaxi"];
+        document.body.innerHTML += "<ul>";
+        for (let fruta of frutas) {
+            document.body.innerHTML += `<li>${fruta}</li>`;
+        }
+        document.body.innerHTML += "</ul>";
+
+        /*=========================================================================*/
+
+    </script>
+</body>
+
+</html>
