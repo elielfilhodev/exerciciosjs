@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercícios intermediario</title>
+</head>
+
+<body>
+
+    <script>
+        /*===============================================*/
+
+        // exercício 1: filter
+
+        let numeros = [3, 7, 12, 5, 18, 1, 25];
+        let maioresQueDez = numeros.filter(function (num) {
+            return num > 10;
+        });
+        console.log(maioresQueDez);
+
+        /*===============================================*/
+
+        // exercício 2: Objetos Pessoa com método
+
+        let pessoa = {
+            nome: "Eliel",
+            idade: 21,
+            falar: function () {
+                console.log(`Olá, meu nome é ${this.nome} e eu tenho ${this.idade} anos.`);
+            }
+        };
+
+        pessoa.falar();
+
+        /*===============================================*/
+
+    </script>
+</body>
+
+</html>

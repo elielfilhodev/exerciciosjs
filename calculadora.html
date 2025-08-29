@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculadora Simples</title>
+    <style>
+        body {
+            background-color: aliceblue;
+            font-family: Arial, Helvetica, sans-serif
+        }
+
+        .container {
+            display: inline-block;
+            margin: 12px
+        }
+
+        .btn {
+            display: inline-block;
+            margin: 12px
+        }
+
+        input {
+            padding: 10px;
+            margin-top: 50px
+        }
+
+        button {
+            background: #fff;
+            border: 0;
+            padding: 10px
+        }
+
+        button:hover {
+            cursor: pointer;
+            background: #000;
+            color: #fff
+        }
+
+        .resultado {
+            color: green;
+            margin-top: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <label for="num1" style="display:block">Primeiro número</label>
+        <input type="number" id="num1" placeholder="Digite um número" />
+        <label for="num2" style="display:block;margin-top:8px">Segundo número</label>
+        <input type="number" id="num2" placeholder="Digite o segundo número" />
+        <br><br>
+        <div class="btn">
+            <button id="btn-somar">Somar +</button>
+            <button id="btn-subtrair">Subtrair -</button>
+            <button id="btn-multiplicar">Multiplicar *</button>
+            <button id="btn-dividir">Dividir /</button>
+        </div>
+        <div class="resultado">
+            <p id="resultado" aria-live="polite"></p>
+        </div>
+    </div>
+
+    <script>
+        const $ = (sel) => document.querySelector(sel);
+        const out = $("#resultado");
+
+        function getNumbers() {
+            const n1 = Number($("#num1").value);
+            const n2 = Number($("#num2").value);
+            if (isNaN(n1) || isNaN(n2)) {
+                setResultado("Preencha os dois números corretamente.");
+                return null;
+            }
+            return { n1, n2 };
+        }
+
+        function setResultado(texto) {
+            out.innerHTML = texto;
+        }
+
+        function somar() {
+            const nums = getNumbers(); if (!nums) return;
+            setResultado(`Resultado: ${nums.n1 + nums.n2}`);
+        }
+
+        function subtrair() {
+            const nums = getNumbers(); if (!nums) return;
+            setResultado(`Resultado: ${nums.n1 - nums.n2}`);
+        }
+
+        function multiplicar() {
+            const nums = getNumbers(); if (!nums) return;
+            setResultado(`Resultado: ${nums.n1 * nums.n2}`);
+        }
+
+        function dividir() {
+            const nums = getNumbers(); if (!nums) return;
+            if (nums.n2 === 0) {
+                setResultado("Não é possível dividir por zero!");
+                return;
+            }
+            setResultado(`Resultado: ${nums.n1 / nums.n2}`);
+        }
+
+        $("#btn-somar").addEventListener("click", somar);
+        $("#btn-subtrair").addEventListener("click", subtrair);
+        $("#btn-multiplicar").addEventListener("click", multiplicar);
+        $("#btn-dividir").addEventListener("click", dividir);
+
+        // Pequeno atalho: pressionar Enter faz a soma
+        document.addEventListener("keydown", (e) => {
+            if (e.key === "Enter") somar();
+        });
+    </script>
+</body>
+
+</html>
